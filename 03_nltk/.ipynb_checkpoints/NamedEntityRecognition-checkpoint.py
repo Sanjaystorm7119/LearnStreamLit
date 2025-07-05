@@ -21,9 +21,9 @@ sentence2 = "My name is Sanjay"
 
 
 
-words = nltk.word_tokenize(sentence)
+words = nltk.word_tokenize(sentence2)
 print(f"words--> {words}")
 pos_tag = nltk.pos_tag(words)
 print(f"pos_tag-->{pos_tag}")
-nltk.ne_chunk(pos_tag).draw()
-# chunk.draw()
+chunk = nltk.ne_chunk(pos_tag)
+print(f"chunk-->{chunk}").draw()
