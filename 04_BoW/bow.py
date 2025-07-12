@@ -8,7 +8,7 @@ nltk.download('stopwords')
 import pandas as pd
 messages=pd.read_csv('smsspamcollection/SMSSpamCollection',
                     sep='\t',names=["label","message"])
-messages
+
 ## Data Cleaning And Preprocessing
 import re
 import nltk
@@ -24,7 +24,7 @@ for i in range(0,len(messages)):
     review=[ps.stem(word) for word in review if not word in stopwords.words('english')]
     review=' '.join(review)
     corpus.append(review)
-corpus
+
 ## Create Bag Of Words
 ## Create the Bag OF Words model
 from sklearn.feature_extraction.text import CountVectorizer
@@ -34,7 +34,7 @@ X=cv.fit_transform(corpus).toarray()
 import numpy as np
 np.set_printoptions(edgeitems=30, linewidth=100000, 
     formatter=dict(float=lambda x: "%.3g" % x))
-X
+
 ### N-Grams
 cv.vocabulary_
 ## Create the Bag OF Words model with ngram
@@ -43,5 +43,5 @@ from sklearn.feature_extraction.text import CountVectorizer
 cv=CountVectorizer(max_features=100,binary=True,ngram_range=(2,3))
 X=cv.fit_transform(corpus).toarray()
 cv.vocabulary_
-X
+
 
